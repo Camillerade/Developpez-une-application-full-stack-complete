@@ -1,0 +1,54 @@
+.themes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Ajoute un espacement entre les colonnes */
+    border-radius: 20px;
+  }
+  
+  .accueil mat-card-content {
+    text-align: center;
+   
+  }
+  
+  .accueil h2 {
+    margin-top: 0;
+    color: #6a1b9a; /* Violet de la maquette */
+  }
+  
+  .accueil p {
+    color: #666;
+  }
+  
+  .theme-item {
+    flex: 1 1 45%; /* 45% pour laisser un peu d'espace entre les colonnes */
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: rgb(247, 243, 244);
+   font-style: bold;
+  }
+  
+  .logo {
+    max-width: 100%; /* Assurez-vous que le logo ne dépasse pas la largeur du conteneur */
+  }
+  
+  .btn-primary { 
+    background-color: rgb(143, 119, 209); /* Couleur de fond violette */ 
+    color: white; /* Couleur du texte blanche */ 
+    border-radius: 10px; /* Coins arrondis */ 
+    border: none; /* Supprime la bordure par défaut */ 
+    padding: 10px 20px; /* Ajoute du padding pour un meilleur aspect visuel */ 
+    font-size: 16px; /* Taille de la police */ 
+    cursor: pointer; /* Change le curseur pour pointer lors du survol */ 
+    transition: background-color 0.3s; /* Ajoute une transition pour l'effet de survol */ 
+    display: inline-block; /* Permet de centrer le bouton avec text-align */ 
+   
+  }
+ 
+  
+  /* Ajoute une requête de média pour les petits écrans */
+  @media (max-width: 768px) {
+    .theme-item {
+      flex: 1 1 100%; /* Prend toute la largeur de l'écran */
+    }
+  }
+  

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thèmes</title>
+</head>
+<mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="custom-toolbar">
+  <img src="assets/logo_p6.png" style="height: 40px; margin-right: 10px;">
+  <span>
+    <button class="btn btn btn-bar" (click)="navigateToThemes()">Themes</button>
+    <button class="btn btn btn-bar" (click)="navigateToAccueil()">Articles</button>
+  </span>
+  <img src="assets/profil.png" style="height: 40px; margin-right: 10px;" (click)="navigateToMe()">
+</mat-toolbar>
+
+
+<body>
+  <div class="themes-container">
+    <div *ngFor="let theme of themes" class="theme-item">
+      <h3>{{ theme.title }}</h3>
+      <p>{{ theme.description }}</p>
+      <button class="btn btn-primary" (click)="subscribe(theme)">S'abonner</button>
+    </div>
+  </div>
+</body>
+</html>
