@@ -1,3 +1,11 @@
+<div class="accueil" fxLayout="column" fxLayoutAlign="center center">
+  <img src="assets/logo_p6.png" class="logo">
+  <span>
+    <button class="btn btn-bar" (click)="navigateToThemes()">Themes</button>
+    <button class="btn btn-bar" (click)="navigateToArticle()">Articles</button>
+  </span>
+</div>
+
 <div class="m3">
   <mat-card>
     <mat-card-title>
@@ -10,21 +18,40 @@
     </mat-card-title>
     <mat-card-content>
       <div *ngIf="user" fxLayout="column" fxLayoutAlign="start center">
-        <p>Username: {{ user.username }}</p>
-        <p>Email: {{ user.email }}</p>
-        <p *ngIf="user.admin" class="my2">You are admin</p>
-        <div *ngIf="!user.admin" fxLayout="column" class="my2" fxLayoutAlign="center center">
-          <p>Delete my account:</p>
-          <button mat-raised-button color="warn" (click)="delete()">
-            <mat-icon>delete</mat-icon>
-            <span class="ml1">Delete</span>
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput [(ngModel)]="user.username">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="user.email">
+        </mat-form-field>
+        <div fxLayout="column" class="my2" fxLayoutAlign="center center">
+          <button mat-raised-button color="primary" (click)="save()">
+            <span class="ml1">Sauvegarder</span>
           </button>
         </div>
-        <div fxLayoutAlign="space-between center" class="p2 w100">
+      </div>
+    </mat-card-content>
+  </mat-card>
 
-          <p><i>Create at: </i> {{ user.createdAt | date: 'longDate'}}</p>
-          <p><i>Last update: </i> {{ user.updatedAt| date: 'longDate'}}</p>
-        </div>
+  <mat-card>
+    <mat-card-title>
+      <h1>Abonnements</h1>
+    </mat-card-title>
+    <mat-card-content fxLayout="column" fxLayoutGap="10px">
+      <div *ngFor="let abonnement of abonnements" fxLayout="column" fxLayoutAlign="start center">
+        <mat-card>
+          <mat-card-title>{{ abonnement.theme.title }}</mat-card-title>
+          <mat-card-content>
+            <p>{{ abonnement.theme.description }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="warn" (click)="unsubscribe(abonnement.theme.id)">
+              <span class="ml1">Se désabonner</span>
+            </button>
+          </mat-card-actions>
+        </mat-card>
       </div>
     </mat-card-content>
   </mat-card>

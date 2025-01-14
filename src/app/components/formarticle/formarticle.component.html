@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<div class="accueil" fxLayout="column" fxLayoutAlign="center center">
+    <img src="assets/logo_p6.png" class="logo">
+    <span>
+      <button class="btn btn-bar" (click)="naviguerVersThemes()">Themes</button>
+      <button class="btn btn-bar" (click)="naviguerVersArticles()">Articles</button>
+    </span>
+
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="articleForm">
+      <mat-form-field>
+        <mat-label>Sélectionner un thème</mat-label>
+        <mat-select formControlName="theme" required>
+          <mat-option *ngFor="let theme of themes" [value]="theme.id">{{ theme.title }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <mat-label>Titre de l’article</mat-label>
+        <input matInput formControlName="title" required>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <mat-label>Description de l’article</mat-label>
+        <textarea matInput formControlName="description" required></textarea>
+      </mat-form-field>
+    
+      <button mat-raised-button color="primary" type="submit" [disabled]="!articleForm.valid">Créer</button>
+    </form>
+    
+    

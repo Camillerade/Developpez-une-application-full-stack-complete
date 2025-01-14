@@ -9,13 +9,14 @@
   <img src="assets/logo_p6.png" style="height: 40px; margin-right: 10px;">
   <span>
     <button class="btn btn btn-bar" (click)="navigateToThemes()">Themes</button>
-    <button class="btn btn btn-bar" (click)="navigateToAccueil()">Articles</button>
+    <button class="btn btn-bar" (click)="navigateToArticle()">Article</button>
   </span>
   <img src="assets/profil.png" style="height: 40px; margin-right: 10px;" (click)="navigateToMe()">
 </mat-toolbar>
 
 
 <body>
+  <button class="btn btn-primary" (click)="navigateToCreateArticle()">Créer un article</button>
   <div class="themes-container">
     <div *ngFor="let theme of themes" class="theme-item">
       <h3>{{ theme.title }}</h3>

@@ -1,10 +1,8 @@
 export interface User {
-    id: number;
-    email: string;
-    username: string;
-    admin: boolean;
-    password: string;
-    createdAt: Date;
-    updatedAt?: Date;
-  }
-  
+  id: number;
+  email: string;
+  username: string;
+  admin: boolean;
+  createdAt: Date;
+  updatedAt?: Date;
+}

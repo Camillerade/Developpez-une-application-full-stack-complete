@@ -1,0 +1,185 @@
+/* src/app/components/articles/articles.component.scss */
+
+/* Stylisation générale */
+.accueil {
+  text-align: center;
+  margin-bottom: 20px;
+
+  img.logo {
+    width: 200px;
+    margin-bottom: 20px;
+  }
+
+  .btn-bar {
+    background-color: #007bff;
+    color: white;
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
+
+/* Stylisation des boutons principaux */
+button.btn.btn-primary {
+  background-color: #6A1B9A;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #4A148C;
+  }
+}
+
+/* Stylisation des cartes */
+.mat-card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+
+  .mat-card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mat-card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .mat-card-subtitle {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 0.3rem;
+
+    span {
+      display: block;
+      margin-bottom: 10px; /* Espacement entre les spans */
+    }
+
+    span:last-child {
+      margin-bottom: 0; /* Pas d'espacement pour le dernier élément */
+    }
+  }
+
+  .mat-card-content {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  .mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+
+    button {
+      background-color: #6A1B9A;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #4A148C;
+      }
+    }
+  }
+}
+
+/* Stylisation du conteneur des articles */
+.container {
+  margin-top: 40px;
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .col-md-6 {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+.themes-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Ajoute un espacement entre les colonnes */
+  border-radius: 20px;
+}
+
+.accueil mat-card-content {
+  text-align: center;
+ 
+}
+
+.accueil h2 {
+  margin-top: 0;
+  color: #6a1b9a; /* Violet de la maquette */
+}
+
+.accueil p {
+  color: #666;
+}
+
+.theme-item {
+  flex: 1 1 45%; /* 45% pour laisser un peu d'espace entre les colonnes */
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: rgb(247, 243, 244);
+ font-style: bold;
+}
+
+.logo {
+  max-width: 100%; /* Assurez-vous que le logo ne dépasse pas la largeur du conteneur */
+}
+
+.btn-primary { 
+  background-color: rgb(143, 119, 209); /* Couleur de fond violette */ 
+  color: white; /* Couleur du texte blanche */ 
+  border-radius: 10px; /* Coins arrondis */ 
+  border: none; /* Supprime la bordure par défaut */ 
+  padding: 10px 20px; /* Ajoute du padding pour un meilleur aspect visuel */ 
+  font-size: 16px; /* Taille de la police */ 
+  cursor: pointer; /* Change le curseur pour pointer lors du survol */ 
+  transition: background-color 0.3s; /* Ajoute une transition pour l'effet de survol */ 
+  display: inline-block; /* Permet de centrer le bouton avec text-align */ 
+ 
+}
+
+
+/* Ajoute une requête de média pour les petits écrans */
+@media (max-width: 768px) {
+  .theme-item {
+    flex: 1 1 100%; /* Prend toute la largeur de l'écran */
+  }
+}
+
+/* Médias queries pour les cartes */
+@media (min-width: 768px) {
+  .row .col-md-6 {
+    flex: 0 0 48%;
+    max-width: 48%;
+  }
+}
+
+@media (max-width: 767px) {
+  .row .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

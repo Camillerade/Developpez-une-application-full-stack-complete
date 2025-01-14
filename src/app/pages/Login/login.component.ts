@@ -33,13 +33,15 @@ export class LoginComponent {
   public submit(): void {
     const loginRequest = this.form.value as LoginRequest;
     this.authService.login(loginRequest).subscribe(
-      (response: AuthSuccess) => {
-        localStorage.setItem('token', response.token);
-        this.authService.me().subscribe((user: User) => {
-          this.router.navigate(['/rentals']);
-        });
-      },
-      error => this.onError = true
+        (response: AuthSuccess) => {
+            localStorage.setItem('token', response.token);
+            // Redirection vers le composant accueil après une connexion réussie
+            this.authService.me().subscribe((user: User) => {
+                this.router.navigate(['/articles']);
+            });
+        },
+        error => this.onError = true
     );
-  }
+}
+
 }
