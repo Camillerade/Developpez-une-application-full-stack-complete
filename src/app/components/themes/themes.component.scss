@@ -12,13 +12,22 @@
   
   .accueil h2 {
     margin-top: 0;
-    color: #6a1b9a; /* Violet de la maquette */
+    color: #755ad8; /* Violet de la maquette */
   }
   
   .accueil p {
     color: #666;
   }
-  
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card-title {
+  font-weight: bold;
+}
+
   .theme-item {
     flex: 1 1 45%; /* 45% pour laisser un peu d'espace entre les colonnes */
     box-sizing: border-box;

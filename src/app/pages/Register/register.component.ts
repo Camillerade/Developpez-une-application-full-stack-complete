@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
 import { AuthService } from '../../services/auth.service';
 import { AuthSuccess } from 'src/app/interfaces/AuthSuccess';
 import { RegisterRequest } from 'src/app/interfaces/RegisterRequest';
-import { User } from 'src/app/interfaces/user.interface';
-
 
 @Component({
   selector: 'app-register',
@@ -20,7 +17,11 @@ export class RegisterComponent {
   public form = this.fb.group({
     username: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(6)]]
+    password: ['', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$')
+    ]]
   });
 
   constructor(
@@ -39,6 +40,5 @@ export class RegisterComponent {
         },
         error => this.onError = true
     );
-}
-
+  }
 }

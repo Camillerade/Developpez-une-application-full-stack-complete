@@ -26,6 +26,11 @@ export class MeComponent implements OnInit {
     this.loadUserInfo();
   }
 
+  logout(): void { localStorage.removeItem('token'); this.router.navigate(['/login']);}
+  
+
+ 
+  navigateToMe(): void { this.router.navigate(['/me']); }
   private loadUserInfo(): void {
     this.authService.me().subscribe(
       (user: any) => {

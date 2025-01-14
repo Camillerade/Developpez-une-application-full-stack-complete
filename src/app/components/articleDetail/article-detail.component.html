@@ -1,11 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thèmes</title>
+</head>
 <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="custom-toolbar">
   <img src="assets/logo_p6.png" style="height: 40px; margin-right: 10px;">
   <span>
     <button class="btn btn btn-bar" (click)="navigateToThemes()">Themes</button>
     <button class="btn btn-bar" (click)="navigateToArticle()">Article</button>
+    <button class="btn btn-bar" (click)="logout()">Déconnexion</button>
+    
   </span>
-  <img src="assets/profil.png" style="height: 40px; margin-right: 10px;" (click)="navigateToMe()">
+  <div>
+    <img src="assets/profil.png" style="height: 40px; margin-right: 10px;" (click)="navigateToMe()">
+  </div>
 </mat-toolbar>
+
 
 <div *ngIf="article">
   <h1>{{ article.title }}</h1>
@@ -17,8 +29,7 @@
   <div>
     <h2>Commentaires</h2>
     <div *ngFor="let comment of comments">
-      <p><strong>{{ comment.author.username }}</strong> ({{ comment.date }}):</p>
-      <p>{{ comment.content }}</p>
+      <p><strong>{{ comment.author.username }}:</strong> {{ comment.content }}</p>
     </div>
 
     <mat-form-field>

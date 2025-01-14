@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<div class="accueil" fxLayout="column" fxLayoutAlign="center center">
-    <img src="assets/logo_p6.png" class="logo">
-    <span>
-      <button class="btn btn-bar" (click)="naviguerVersThemes()">Themes</button>
-      <button class="btn btn-bar" (click)="naviguerVersArticles()">Articles</button>
-    </span>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thèmes</title>
+</head>
+<mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="custom-toolbar">
+  <img src="assets/logo_p6.png" style="height: 40px; margin-right: 10px;">
+  <span>
+    <button class="btn btn btn-bar" (click)="navigateToThemes()">Themes</button>
+    <button class="btn btn-bar" (click)="navigateToArticle()">Article</button>
+    <button class="btn btn-bar" (click)="logout()">Déconnexion</button>
+    
+  </span>
+  <div>
+    <img src="assets/profil.png" style="height: 40px; margin-right: 10px;" (click)="navigateToMe()">
+  </div>
+</mat-toolbar>
 
 
     <form (ngSubmit)="onSubmit()" [formGroup]="articleForm">

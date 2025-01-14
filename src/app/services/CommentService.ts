@@ -12,7 +12,9 @@ export class CommentService {
   constructor(private http: HttpClient) {}
 
   getCommentsByArticleId(articleId: number): Observable<Comment[]> {
-    return this.http.get<Comment[]>(`${this.apiUrl}?articleId=${articleId}`);
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<Comment[]>(`${this.apiUrl}?articleId=${articleId}`, { headers });
   }
 
   addComment(comment: Comment): Observable<Comment> {

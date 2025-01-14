@@ -2,11 +2,14 @@
 export interface Comment {
     id?: number;
     content: string;
-    date: string;
+    date?: string;
     author: {
       id: number;
       username: string;
     };
-    articleId: number;
+    article: {
+      id: number;
+    };
+   
   }
   

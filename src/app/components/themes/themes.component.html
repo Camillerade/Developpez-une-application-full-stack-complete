@@ -10,19 +10,27 @@
   <span>
     <button class="btn btn btn-bar" (click)="navigateToThemes()">Themes</button>
     <button class="btn btn-bar" (click)="navigateToArticle()">Article</button>
+    <button class="btn btn-bar" (click)="logout()">Déconnexion</button>
+    
   </span>
-  <img src="assets/profil.png" style="height: 40px; margin-right: 10px;" (click)="navigateToMe()">
+  <div>
+    <img src="assets/profil.png" style="height: 40px; margin-right: 10px;" (click)="navigateToMe()">
+  </div>
 </mat-toolbar>
-
 
 <body>
   <button class="btn btn-primary" (click)="navigateToCreateArticle()">Créer un article</button>
   <div class="themes-container">
-    <div *ngFor="let theme of themes" class="theme-item">
-      <h3>{{ theme.title }}</h3>
-      <p>{{ theme.description }}</p>
-      <button class="btn btn-primary" (click)="subscribe(theme)">S'abonner</button>
-    </div>
+    <mat-card *ngFor="let theme of themes" class="theme-item">
+      <mat-card-title><strong>{{ theme.title }}</strong></mat-card-title>
+      <mat-card-content>{{ theme.description }}</mat-card-content>
+      <mat-card-actions>
+        <div class="button-container">
+          <button class="btn btn-primary" (click)="subscribe(theme)">S'abonner</button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
   </div>
 </body>
 </html>
+

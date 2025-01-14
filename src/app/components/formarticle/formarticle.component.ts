@@ -32,17 +32,17 @@ export class CreateArticleComponent implements OnInit {
     });
   }
 
-  naviguerVersThemes(): void {
+  navigateToThemes(): void {
     this.router.navigate(['/themes']);
   }
-
-  naviguerVersArticles(): void {
+  logout(): void { localStorage.removeItem('token'); this.router.navigate(['/login']);}
+  
+  navigateToArticle(): void {
     this.router.navigate(['/articles']);
   }
 
-  naviguerVersFormArticle(): void {
-    this.router.navigate(['/formarticle']);
-  }
+ 
+  navigateToMe(): void { this.router.navigate(['/me']); }
 
   ngOnInit(): void {
     // Récupérer les informations de l'utilisateur connecté

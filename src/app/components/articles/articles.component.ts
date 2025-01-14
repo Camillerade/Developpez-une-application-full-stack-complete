@@ -16,15 +16,18 @@ export class ArticlesComponent implements OnInit {
   navigateToThemes(): void {
     this.router.navigate(['/themes']);
   }
-
+  logout(): void { localStorage.removeItem('token'); this.router.navigate(['/login']);}
+  
   navigateToArticle(): void {
     this.router.navigate(['/articles']);
   }
 
+ 
+  navigateToMe(): void { this.router.navigate(['/me']); }
+
   navigateToCreateArticle(): void {
     this.router.navigate(['/formarticle']);
   }
-  navigateToMe(): void { this.router.navigate(['/me']); }
   ngOnInit(): void {
     this.articleService.getArticles().subscribe(
       (data: Article[]) => {

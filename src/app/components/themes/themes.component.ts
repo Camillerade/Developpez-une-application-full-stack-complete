@@ -42,6 +42,8 @@ export class ThemesComponent implements OnInit {
       }
     );
   }
+  logout(): void { localStorage.removeItem('token'); this.router.navigate(['/login']);}
+  
 
   navigateToThemes() {
     this.router.navigate(['/themes']);
