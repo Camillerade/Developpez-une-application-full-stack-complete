@@ -1,15 +1,108 @@
-.login {
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5; /* Couleur de fond gris clair */
+  }
+   
+  .logo-bar {
+    width: 100%;
+    background-color: white; /* Fond blanc */
+    padding: 10px 0; /* Espacement interne de la barre */
+    text-align: left; /* Aligne le logo à gauche */
+    border-bottom: 2px solid black; /* Bordure noire en bas */
+  }
+  
+  .logo {
+    height: 50px; /* Ajustez la hauteur de l'image du logo */
+    margin-left: 10px; /* Ajoute un peu d'espacement à gauche de l'image */
+  }
+  .login {
     margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .center-header { display: flex; justify-content: center;}
+  mat-card {
+    max-width: 400px; /* Ajustez la largeur maximale de la carte */
+    width: 100%;
+    padding: 20px;
+    
+  
+   
+  }
+  
+  mat-card-title {
+    text-align: center;
+    display: block;
+    font-size: 24px; /* Taille de police du titre */
+    font-weight: bold;
+    margin-bottom: 20px; /* Espacement sous le titre */
+  }
+  
+  .form-field {
+    margin-bottom: 20px; /* Espacement entre les champs */
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px; /* Taille de police */
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  .mat-form-field-outline {
+    border: 2px solid black; /* Bordure noire de 2px */
+    border-radius: 8px; /* Coins arrondis */
+    padding: 10px;
+    background-color: #fff; /* Couleur de fond blanche */
+  }
+  
+  input[matInput] {
+    padding: 10px;
+    border: none; /* Supprime la bordure par défaut de l'input */
+    outline: none; /* Supprime le contour par défaut de l'input */
+    background-color: transparent; /* Pour s'assurer qu'il n'y a pas de fond */
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center; /* Centre le bouton horizontalement */
+  }
+  
+  button {
+    width: 150px;
+    margin-top: 20px; /* Espacement au-dessus du bouton */
+    background-color: rgb(143, 119, 209); /* Couleur de fond violette */
+    color: white;
+    font-size: 16px; /* Taille de police */
+    display: block; /* Assure que le bouton est centré */
+    border-radius: 8px; /* Coins arrondis pour le bouton */
+    text-align: center; /* Centre le texte du bouton */
+  }
+  
+  .error {
+    color: red;
+    text-align: center;
+    margin-top: 10px; /* Espacement au-dessus du message d'erreur */
+  }
+  
+  /* Media Queries */
+  @media (max-width: 600px) {
     mat-card {
-        margin-left: 35%;
-        max-width: 600px;
-        width: 100%;
-        button{
-            margin-left: 40%;
-            width: 150px;
-            background-color: rgb(143, 119, 209); /* Couleur de fond violette */ 
-            color: white;
-        }
+      padding: 10px;
     }
   
-}
+    button {
+      width: 100%; /* Largeur complète pour petits écrans */
+    }
+  }
+  

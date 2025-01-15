@@ -7,67 +7,71 @@
 </head>
 <body>
   <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="custom-toolbar">
-    <!-- Logo à gauche -->
-    <div fxLayout="row" fxLayoutAlign="start center">
-      <img src="assets/logo_p6.png" style="height: 40px; margin-left: 10px;">
+    <img src="assets/logo_p6.png" class="logo">
+    <div class="right-section">
+      <span class="toolbar-buttons">
+        <button mat-button class="btn-violet" (click)="navigateToThemes()">Thèmes</button>
+        <button mat-button class="btn-black" (click)="navigateToArticle()">Articles</button>
+      
+      </span>
+      <img src="assets/profil.png" class="profile-pic" (click)="navigateToMe()">
     </div>
-  
-    <!-- Boutons et icône profil alignés à droite -->
-    <div fxLayout="row" fxLayoutAlign="end center">
-      <button class="btn btn-bar" (click)="navigateToArticle()">Articles</button>
-      <button class="btn btn-bar-theme" (click)="navigateToThemes()">Thèmes</button>
-    
-    </div>
-    <img src="assets/profil.png" style="height: 50px; margin: 0 2px;" (click)="navigateToMe()">
   </mat-toolbar>
   
-<div class="m3">
+  <div class="m3">
+    <mat-card>
+      <mat-card-title class="card-title">
+        <div fxLayout="row" fxLayoutAlign="center center">
+        
+          <h1>User information</h1>
+        </div>
+      </mat-card-title>
+      <mat-card-content>
+        <div *ngIf="user" fxLayout="column" fxLayoutAlign="center center">
+          <mat-form-field appearance="outline" class="input-field">
+            <mat-label>Username</mat-label>
+            <input matInput [(ngModel)]="user.username">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="input-field">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="user.email">
+          </mat-form-field>
+          <div fxLayout="column" class="my2" fxLayoutAlign="center center">
+            <button mat-raised-button (click)="save()" class="custom-button">
+              <span class="ml1">Sauvegarder</span>
+            </button>
+            <br>
+            <button mat-button class="btn-red" (click)="logout()">Déconnexion</button>
+            <hr>
+          </div>
+        </div>
+      </mat-card-content>
+      <hr>
+    </mat-card>
+    
+  </div>
+  
   <mat-card>
-    <mat-card-title>
-      <div fxLayout="row" fxLayoutAlign="start center">
-        <button mat-icon-button (click)="back()">
-          <mat-icon>arrow_back</mat-icon>
-        </button>
-        <h1>User information</h1>
-      </div>
+    <hr>
+    <mat-card-title class="card-title">
+      <h1>Abonnements</h1>
     </mat-card-title>
-    <mat-card-content>
-      <div *ngIf="user" fxLayout="column" fxLayoutAlign="start center">
-        <mat-form-field>
-          <mat-label>Username</mat-label>
-          <input matInput [(ngModel)]="user.username">
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Email</mat-label>
-          <input matInput [(ngModel)]="user.email">
-        </mat-form-field>
-        <div fxLayout="column" class="my2" fxLayoutAlign="center center">
-          <button mat-raised-button color="primary" (click)="save()">
-            <span class="ml1">Sauvegarder</span>
-          </button>
+    <mat-card-content fxLayout="row" fxLayoutWrap="wrap" fxLayoutGap="10px">
+      <div class="cards-container" fxLayout="row" fxLayoutWrap="wrap" fxLayoutGap="10px">
+        <div *ngFor="let abonnement of abonnements" fxFlex="100%" fxFlex.gt-sm="50%" fxLayout="column" fxLayoutAlign="start center">
+          <mat-card>
+            <mat-card-title>{{ abonnement.theme.title }}</mat-card-title>
+            <mat-card-content>
+              <p>{{ abonnement.theme.description }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button (click)="unsubscribe(abonnement.theme.id)" class="custom-button">
+                <span class="ml1">Se désabonner</span>
+              </button>
+            </mat-card-actions>
+          </mat-card>
         </div>
       </div>
     </mat-card-content>
   </mat-card>
-
-  <mat-card>
-    <mat-card-title>
-      <h1>Abonnements</h1>
-    </mat-card-title>
-    <mat-card-content fxLayout="column" fxLayoutGap="10px">
-      <div *ngFor="let abonnement of abonnements" fxLayout="column" fxLayoutAlign="start center">
-        <mat-card>
-          <mat-card-title>{{ abonnement.theme.title }}</mat-card-title>
-          <mat-card-content>
-            <p>{{ abonnement.theme.description }}</p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-raised-button color="warn" (click)="unsubscribe(abonnement.theme.id)">
-              <span class="ml1">Se désabonner</span>
-            </button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
-    </mat-card-content>
-  </mat-card>
-</div>
+  

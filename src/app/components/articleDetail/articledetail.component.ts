@@ -14,6 +14,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./article-detail.component.scss']
 })
 export class ArticleDetailComponent implements OnInit {
+back() {
+throw new Error('Method not implemented.');
+}
   article: Article | undefined;
   comments: Comment[] = [];
   newComment: string = '';

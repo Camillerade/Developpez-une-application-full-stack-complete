@@ -1,46 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thèmes</title>
+  <title>Créer un Nouvel Article</title>
+
 </head>
 <body>
   <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="custom-toolbar">
-    <!-- Logo à gauche -->
-    <div fxLayout="row" fxLayoutAlign="start center">
-      <img src="assets/logo_p6.png" style="height: 40px; margin-left: 10px;">
+    <img src="assets/logo_p6.png" class="logo">
+    <div class="right-section">
+      <span class="toolbar-buttons">
+        <button mat-button class="btn-violet" (click)="navigateToThemes()">Thèmes</button>
+        <button mat-button class="btn-black" (click)="navigateToArticle()">Articles</button>
+       
+      </span>
+      <img src="assets/profil.png" class="profile-pic" (click)="navigateToMe()">
     </div>
-  
-    <!-- Boutons et icône profil alignés à droite -->
-    <div fxLayout="row" fxLayoutAlign="end center">
-      <button class="btn btn-bar" (click)="navigateToArticle()">Articles</button>
-      <button class="btn btn-bar-theme" (click)="navigateToThemes()">Thèmes</button>
-    
-    </div>
-    <img src="assets/profil.png" style="height: 50px; margin: 0 2px;" (click)="navigateToMe()">
   </mat-toolbar>
 
+    <div class="container">
+      <h1 class="form-title">Créer un nouvel article</h1>
+      <form (ngSubmit)="onSubmit()" [formGroup]="articleForm">
+        <mat-form-field appearance="outline" class="custom-field">
+          <mat-label>Sélectionner un thème</mat-label>
+          <mat-select formControlName="theme" required>
+            <mat-option *ngFor="let theme of themes" [value]="theme.id">{{ theme.title }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline" class="custom-field">
+          <mat-label>Titre de l’article</mat-label>
+          <input matInput formControlName="title" required>
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline" class="custom-field">
+          <mat-label>Description de l’article</mat-label>
+          <textarea  matInput formControlName="description" required ></textarea>
 
-    <form (ngSubmit)="onSubmit()" [formGroup]="articleForm">
-      <mat-form-field>
-        <mat-label>Sélectionner un thème</mat-label>
-        <mat-select formControlName="theme" required>
-          <mat-option *ngFor="let theme of themes" [value]="theme.id">{{ theme.title }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    
-      <mat-form-field>
-        <mat-label>Titre de l’article</mat-label>
-        <input matInput formControlName="title" required>
-      </mat-form-field>
-    
-      <mat-form-field>
-        <mat-label>Description de l’article</mat-label>
-        <textarea matInput formControlName="description" required></textarea>
-      </mat-form-field>
-    
-      <button mat-raised-button color="primary" type="submit" [disabled]="!articleForm.valid">Créer</button>
-    </form>
-    
-    
+        </mat-form-field>
+      
+        <button mat-raised-button class="custom-button" type="submit" [disabled]="!articleForm.valid">Créer</button>
+
+      </form>
+    </div>
+  </body>
+  </html>
+  

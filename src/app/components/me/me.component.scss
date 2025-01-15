@@ -1,51 +1,122 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #f9f9f9;
+.card-title h1 {
+  text-align: center;
+  width: 100%;
+}
+
+.input-field {
+  border-radius: 25px;
+  width: 100%;
+  max-width: 400px;
+  margin: 10px 0; /* Add margin to create space between fields */
+}
+
+.m3 mat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.my2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.custom-button {
+  background-color: rgb(143, 119, 209) !important; /* Couleur de fond violette */
+  color: white !important; /* Couleur du texte blanche */
+  border-radius: 10px !important; /* Coins arrondis */
+  border: none !important; /* Supprime la bordure par défaut */
+  padding: 10px 20px !important; /* Ajoute du padding pour un meilleur aspect visuel */
+  font-size: 16px !important; /* Taille de la police */
+  cursor: pointer !important; /* Change le curseur pour pointer lors du survol */
+  transition: background-color 0.3s !important; /* Ajoute une transition pour l'effet de survol */
+}
+
+.custom-button:hover {
+  background-color: rgb(122, 98, 187) !important; /* Slightly darker shade for hover effect */
+}
+
+.btn-red {
+  color: red !important; /* Change button text color to red */
+}
+
+
+
+
+.card-title h1 {
+  text-align: center;
+  width: 100%;
+}
+
+.input-field {
+  border-radius: 25px;
+  width: 100%;
+  max-width: 400px;
+  margin: 10px 0; /* Add margin to create space between fields */
+}
+
+.m3 mat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.my2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.custom-button {
+  background-color: rgb(143, 119, 209) !important; /* Couleur de fond violette */
+  color: white !important; /* Couleur du texte blanche */
+  border-radius: 10px !important; /* Coins arrondis */
+  border: none !important; /* Supprime la bordure par défaut */
+  padding: 10px 20px !important; /* Ajoute du padding pour un meilleur aspect visuel */
+  font-size: 16px !important; /* Taille de la police */
+  cursor: pointer !important; /* Change le curseur pour pointer lors du survol */
+  transition: background-color 0.3s !important; /* Ajoute une transition pour l'effet de survol */
+}
+
+.custom-button:hover {
+  background-color: rgb(122, 98, 187) !important; /* Slightly darker shade for hover effect */
+}
+
+.btn-red {
+  color: red !important; /* Change button text color to red */
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card-title {
+  text-align: center;
+  width: 100%;
+}
+
+.card-title h1 {
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+}
+
+mat-card {
+  margin: 10px;
+}
+
+.cards-container > div {
+  box-sizing: border-box;
+  width: 100%; /* Full width for mobile */
+}
+
+@media (min-width: 768px) {
+  .cards-container > div {
+    width: calc(50% - 10px); /* Two columns for tablets and above */
   }
-mat-card-title {
-    font-weight: bold;
-  }
-  .custom-toolbar {
-    background-color: #ffffff; /* Couleur blanche pour correspondre à la maquette */
-    height: 60px; /* Ajuste la hauteur */
-    border-bottom: 1px solid #ccc; /* Ligne fine en bas pour la séparation */
-  }
-  
-  .btn-bar {
-    background: none;
-    border: none;
-    color: #000; /* Couleur du texte */
-    font-size: 16px;
-    cursor: pointer;
-    margin-bottom: 25px;
-  }
-  .btn-bar-theme{
-    background: none;
-    border: none;
-    color: #742ce9; /* Couleur du texte */
-    font-size: 16px;
-    cursor: pointer;
-    margin-bottom: 25px;
-    
-  }
-  
-  img {
-    cursor: pointer; /* Ajoute une main au survol de l'image */
-  }
-  
-  
-  
-    .theme-item {
-      flex: 1 1 45%; /* 45% pour laisser un peu d'espace entre les colonnes */
-      box-sizing: border-box;
-      padding: 10px;
-      background-color: rgb(247, 243, 244);
-     font-style: bold;
-    }
-    
-    .logo {
-      max-width: 100%; /* Assurez-vous que le logo ne dépasse pas la largeur du conteneur */
-    }
+}

@@ -1,4 +1,60 @@
-/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .custom-toolbar {
+    width: 100%;
+    background-color: white; /* Fond blanc */
+    border-bottom: 2px solid black; /* Bordure noire en bas */
+    padding: 10px 20px; /* Espacement interne de la barre */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 40px;
+   
+  }
+  
+  .right-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .toolbar-buttons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .btn-violet {
+    color: rgb(143, 119, 209); /* Couleur violette */
+    background-color: transparent; /* Fond transparent */
+    border: none; /* Supprime la bordure */
+    cursor: pointer;
+    font-size: 14px; /* Taille de police */
+    margin-right: 15px; /* Espacement entre les boutons */
+  }
+  
+  .btn-black {
+    color: black; /* Couleur noire */
+    background-color: transparent; /* Fond transparent */
+    border: none; /* Supprime la bordure */
+    cursor: pointer;
+    font-size: 14px; /* Taille de police */
+    margin-right: 15px; /* Espacement entre les boutons */
+  }
+  
+  .btn-violet:hover,
+  .btn-black:hover {
+    text-decoration: underline; /* Soulignement au survol */
+  }
+  
+  .profile-pic {
+    height: 40px;
+    cursor: pointer;
+    margin-left: 15px; /* Espacement à gauche de l'image de profil */
+  }
+  

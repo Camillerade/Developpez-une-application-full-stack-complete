@@ -1,42 +1,53 @@
-body{
+body, html {
   height: 100%;
-  width:  100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.buttons {
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
   box-sizing: border-box;
-
-position: absolute;
-width: 377px;
-height: 40px;
-left: 430.5px;
-top: 568px;
-
-background: #FFFFFF;
-margin-left: 20%;
-border-radius: 8px;
-
 }
-.logo{
-  /* logo_p6 1 */
 
-position: absolute;
-width: 412px;
-height: 238px;
-left: 411px;
-top: 286px;
-margin-left: 18%;
-
-
+.logo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
-.home-container{
 
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+}
 
-position: absolute;
-width: 835px;
-height: 584px;
-left: 199px;
-top: 199px;
+.btn-connecter, .btn-inscrire {
+  margin: 5px; /* Réduction de l'espace entre les boutons */
+  width: 20%; /* Réduction de la taille des boutons */
+  max-width: none;
+}
 
-background: #FFFFFF;
-border: 1px solid #000000;
+/* Media Queries */
+@media (max-width: 600px) {
+  .buttons {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .btn-connecter, .btn-inscrire {
+    width: 60%; /* Ajustez la largeur pour petits écrans */
+    margin: 10px auto; /* Centre horizontalement */
+  }
 }

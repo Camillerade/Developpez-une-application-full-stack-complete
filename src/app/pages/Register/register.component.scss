@@ -1,8 +1,106 @@
-.register {
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Permet d'empiler la barre de logo et le reste du contenu verticalement */
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5; /* Couleur de fond gris clair */
+  }
+  
+  .logo-bar {
+    width: 100%;
+    background-color: white; /* Fond blanc */
+    padding: 10px 0; /* Espacement interne de la barre */
+    text-align: left; /* Aligne le logo à gauche */
+    border-bottom: 2px solid black; /* Bordure noire en bas */
+  }
+  
+  .logo {
+    height: 50px; /* Ajustez la hauteur de l'image du logo */
+    margin-left: 10px; /* Ajoute un peu d'espacement à gauche de l'image */
+  }
+  
+  .register {
     margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  mat-card {
+    max-width: 400px; /* Ajustez la largeur maximale de la carte */
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fff; /* Couleur de fond blanche */
+    border: none; /* Supprimez la bordure */
+    box-shadow: none; /* Supprimez l'ombre */
+  }
+  
+  .center-header {
+    display: flex;
+    justify-content: center;
+  }
+  
+  mat-card-title {
+    text-align: center;
+    display: block;
+    font-size: 24px; /* Taille de police du titre */
+    font-weight: bold;
+    margin-bottom: 20px; /* Espacement sous le titre */
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px; /* Espacement entre les champs */
+  }
+  
+  mat-form-field.appearance-outline .mat-form-field-wrapper {
+    border: 2px solid black; /* Bordure noire de 2px */
+    border-radius: 8px; /* Coins arrondis */
+    padding: 10px;
+    background-color: #fff; /* Couleur de fond blanche */
+  }
+  
+  input[matInput] {
+    padding: 10px;
+    border: none; /* Supprime la bordure par défaut de l'input */
+    outline: none; /* Supprime le contour par défaut de l'input */
+    background-color: transparent; /* Pour s'assurer qu'il n'y a pas de fond */
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center; /* Centre le bouton horizontalement */
+  }
+  
+  button {
+    width: 150px;
+    margin-top: 20px; /* Espacement au-dessus du bouton */
+    background-color: rgb(143, 119, 209); /* Couleur de fond violette */
+    color: white;
+    font-size: 16px; /* Taille de police */
+    display: inline-block; /* Assure que le bouton est centré */
+    border-radius: 8px; /* Coins arrondis pour le bouton */
+    text-align: center; /* Centre le texte du bouton */
+  }
+  
+  .error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px; /* Espacement au-dessus du message d'erreur */
+  }
+  
+  /* Media Queries */
+  @media (max-width: 600px) {
     mat-card {
-        margin: 20px;
-        max-width: 600px;
-        width: 100%;
+      padding: 10px;
     }
-}
+  
+    button {
+      width: 100%; /* Largeur complète pour petits écrans */
+    }
+  }
+  

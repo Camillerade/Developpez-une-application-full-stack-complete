@@ -1,119 +1,153 @@
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-  }
-  
-  .custom-toolbar {
-    background-color: #ffffff;
-  
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .custom-toolbar img {
-    height: 40px;
-    margin-right: 10px;
-  }
-  
-  .btn-bar {
-    background: none;
-    border: none;
-    color: #333;
-    font-size: 16px;
-    cursor: pointer;
-    margin-right: 20px;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* Centrer verticalement les éléments */
+  align-items: center; /* Centrer horizontalement les éléments */
+}
 
-  
-  .container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .article-title {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .article-details p {
-    font-size: 0.875rem;
-    color: #666;
-    margin: 5px 0;
-  }
-  
-  .article-description {
-    font-size: 1rem;
-    color: #333;
-    margin-top: 10px;
-    margin-bottom: 30px;
-  }
-  
-  .comments-section {
-    margin-top: 20px;
-  }
-  
-  .comments-section h2 {
-    font-size: 1.25rem;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .comment {
-    background-color: #f7f3f4;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-  
-  .comment strong {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .comment p {
-    margin: 0;
-    font-size: 0.875rem;
-    color: #666;
-  }
-  
-  .add-comment {
-    margin-top: 10px;
-  }
-  
-  .add-comment mat-form-field {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  
-  textarea {
-    width: 100%;
-    height: 80px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 0.875rem;
-  }
-  
-  button {
-    background-color: #742ce9;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 0.875rem;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
+/* Container Styles */
+.container {
+  margin-top: 1rem; /* Espace entre la barre d'outils et le contenu */
+  padding: 1rem;
+  width: 100%;
+  max-width: 800px; /* Limiter la largeur du conteneur */
+  text-align: left; /* Aligner le texte à gauche */
+}
 
-  
+/* Article Styles */
+.article-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold; /* Titre en gras */
+}
+
+.article-details {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem; /* Espacement entre les éléments */
+  margin-bottom: 1rem;
+}
+
+.article-details-item {
+  margin: 0;
+}
+
+.article-description {
+  margin-bottom: 2rem;
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: rgb(143, 119, 209); /* Couleur de fond violette */
+  color: white; /* Couleur du texte blanche */
+  border-radius: 10px; /* Coins arrondis */
+  border: none; /* Supprime la bordure par défaut */
+  padding: 10px 20px; /* Ajoute du padding pour un meilleur aspect visuel */
+  font-size: 16px; /* Taille de la police */
+  cursor: pointer; /* Change le curseur pour pointer lors du survol */
+  transition: background-color 0.3s; /* Ajoute une transition pour l'effet de survol */
+}
+
+/* Comment Section Styles */
+.comments-section {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.comment {
+  background-color: #ffffff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.comment-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.comment-author {
+  font-weight: bold;
+}
+
+.comment-content {
+  background-color: rgb(247, 243, 244);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.add-comment {
+  margin-top: 20px;
+}
+
+.add-comment label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.add-comment textarea {
+  width: 100%;
+  resize: vertical;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#newComment {
+  border: 1px solid black; /* Bordure noire de 1px */
+  border-radius: 8px; /* Coins légèrement arrondis */
+  padding: 10px; /* Espace intérieur pour un meilleur confort d'écriture */
+  width: 100%;
+  resize: vertical; /* Permet à l'utilisateur de redimensionner verticalement */
+}
+
+.add-comment button {
+  background-color: rgb(143, 119, 209); /* Couleur de fond violette */
+  color: white; /* Couleur du texte blanche */
+  border-radius: 10px; /* Coins arrondis */
+  border: none; /* Supprime la bordure par défaut */
+  padding: 10px 20px; /* Ajoute du padding pour un meilleur aspect visuel */
+  font-size: 16px; /* Taille de la police */
+  cursor: pointer; /* Change le curseur pour pointer lors du survol */
+  transition: background-color 0.3s; /* Ajoute une transition pour l'effet de survol */
+}
+
+.add-comment button:hover {
+  background-color: #0056b3;
+}
+
+/* Material Design Form Fields */
+.mat-form-field {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .article-details {
+    flex-direction: column;
+  }
+
+  .comment-container {
+    grid-template-columns: 1fr; /* Une seule colonne pour les petits écrans */
+  }
+
+  .article-grid {
+    flex-direction: column; /* Une seule colonne pour les articles sur les petits écrans */
+  }
+
+  .article-item {
+    flex: 1 1 100%; /* Une seule colonne */
+  }
+}

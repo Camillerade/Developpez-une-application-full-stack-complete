@@ -6,32 +6,30 @@
   <title>Thèmes</title>
 </head>
 <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="custom-toolbar">
-  <img src="assets/logo_p6.png" style="height: 40px; margin-right: 10px;">
-  <span>
-    <button class="btn btn btn-bar" (click)="navigateToThemes()">Themes</button>
-    <button class="btn btn-bar" (click)="navigateToArticle()">Article</button>
-    <button class="btn btn-bar" (click)="logout()">Déconnexion</button>
+  <img src="assets/logo_p6.png" class="logo">
+  <div class="right-section">
+    <span class="toolbar-buttons">
+      <button mat-button class="btn-violet" (click)="navigateToThemes()">Thèmes</button>
+      <button mat-button class="btn-black" (click)="navigateToArticle()">Articles</button>
     
-  </span>
-  <div>
-    <img src="assets/profil.png" style="height: 40px; margin-right: 10px;" (click)="navigateToMe()">
+    </span>
+    <img src="assets/profil.png" class="profile-pic" (click)="navigateToMe()">
   </div>
 </mat-toolbar>
 
 
-<button class="btn btn-primary" (click)="navigateToCreateArticle()">Créer un article</button>
+<button class="custom-btn" (click)="navigateToCreateArticle()">Créer un article</button>
 
 <!-- Liste des Articles -->
 <div class="container mt-4">
-  <div class="row">
-    <div class="col-md-6" *ngFor="let article of articles">
-      <mat-card class="mb-4">
+  <div class="article-grid">
+    <div *ngFor="let article of articles" class="article-item">
+      <mat-card class="mb-4 article-card">
         <mat-card-header>
           <mat-card-title>{{ article.title }}</mat-card-title>
           <mat-card-subtitle>
             <span>{{ article.date | date: 'longDate' }}</span><br>
             <span>{{ article.author.username }}</span>
-        
           </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>

@@ -1,51 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thèmes</title>
+  <title>Créer un Nouvel Article</title>
+
 </head>
 <body>
   <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="custom-toolbar">
-    <img src="assets/logo_p6.png" style="height: 40px; margin-right: 10px;">
-    <span>
-      <button class="btn btn-bar" (click)="navigateToThemes()">Thèmes</button>
-      <button class="btn btn-bar" (click)="navigateToArticle()">Articles</button>
-      <button class="btn btn-bar" (click)="logout()">Déconnexion</button>
-    </span>
-    <div>
-      <img src="assets/profil.png" style="height: 40px; margin-right: 10px;" (click)="navigateToMe()">
+    <img src="assets/logo_p6.png" class="logo">
+    <div class="right-section">
+      <span class="toolbar-buttons">
+        <button mat-button class="btn-violet" (click)="navigateToThemes()">Thèmes</button>
+        <button mat-button class="btn-black" (click)="navigateToArticle()">Articles</button>
+       
+      </span>
+      <img src="assets/profil.png" class="profile-pic" (click)="navigateToMe()">
     </div>
   </mat-toolbar>
+
 
   <div class="container" *ngIf="article">
     <h1 class="article-title">{{ article.title }}</h1>
     <div class="article-details">
-      <p><strong>Auteur :</strong> {{ article.author.username }}</p>
-      <p><strong>Date :</strong> {{ article.date }}</p>
-      <p><strong>Thème :</strong> {{ article.theme.title }}</p>
-      <p><strong>Description :</strong></p>
-      <p class="article-description">{{ article.description }}</p>
+      <p class="article-details-item"><strong>Thème :</strong> {{ article.theme.title }}</p>
+      <p class="article-details-item"><strong>Auteur :</strong> {{ article.author.username }}</p>
+      <p class="article-details-item"><strong>Date :</strong> {{ article.date }}</p>
     </div>
-  
+    <p class="article-description">{{ article.description }}</p>
+    <hr>
     <div class="comments-section">
       <h2>Commentaires</h2>
       <div *ngFor="let comment of comments" class="comment">
-        <p><strong>{{ comment.author.username }}:</strong> {{ comment.content }}</p>
+        <div class="comment-container">
+          <div class="comment-author"><strong>{{ comment.author.username }}</strong></div>
+          <div class="comment-content">{{ comment.content }}</div>
+        </div>
       </div>
-  
+    
       <div class="add-comment">
-        <mat-form-field>
-          <mat-label>Ajouter un commentaire</mat-label>
-          <textarea matInput [(ngModel)]="newComment"></textarea>
-        </mat-form-field>
-        <button mat-raised-button color="primary" (click)="addComment()">Commenter</button>
+      
+        <textarea id="newComment" [(ngModel)]="newComment" placeholder="Ecrivez ici votre commentaire"></textarea>
+
+        <button  (click)="addComment()">Commenter</button>
       </div>
     </div>
+    
+    
   </div>
   <div *ngIf="!article">
     <p>Chargement...</p>
   </div>
-  
 </body>
 </html>
