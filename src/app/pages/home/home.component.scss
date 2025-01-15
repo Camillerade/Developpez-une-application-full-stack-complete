@@ -1,37 +1,42 @@
-.home-container {
-  text-align: center;
-  margin-top: 50px;
+body{
+  height: 100%;
+  width:  100%;
 }
-
-.home-container h1 {
-  font-size: 2.5em;
-  color: #333;
-}
-
 .buttons {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  box-sizing: border-box;
+
+position: absolute;
+width: 377px;
+height: 40px;
+left: 430.5px;
+top: 568px;
+
+background: #FFFFFF;
+margin-left: 20%;
+border-radius: 8px;
+
 }
+.logo{
+  /* logo_p6 1 */
 
-.buttons button {
-  background-color: #6200ea;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1em;
-  cursor: pointer;
-  margin: 10px;
+position: absolute;
+width: 412px;
+height: 238px;
+left: 411px;
+top: 286px;
+margin-left: 18%;
+
+
 }
+.home-container{
 
-@media (max-width: 600px) {
-  .home-container h1 {
-    font-size: 2em;
-  }
 
-  .buttons button {
-    width: 100%;
-  }
+position: absolute;
+width: 835px;
+height: 584px;
+left: 199px;
+top: 199px;
+
+background: #FFFFFF;
+border: 1px solid #000000;
 }

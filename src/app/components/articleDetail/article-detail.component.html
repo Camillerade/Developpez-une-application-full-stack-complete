@@ -5,40 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thèmes</title>
 </head>
-<mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="custom-toolbar">
-  <img src="assets/logo_p6.png" style="height: 40px; margin-right: 10px;">
-  <span>
-    <button class="btn btn btn-bar" (click)="navigateToThemes()">Themes</button>
-    <button class="btn btn-bar" (click)="navigateToArticle()">Article</button>
-    <button class="btn btn-bar" (click)="logout()">Déconnexion</button>
-    
-  </span>
-  <div>
-    <img src="assets/profil.png" style="height: 40px; margin-right: 10px;" (click)="navigateToMe()">
-  </div>
-</mat-toolbar>
-
-
-<div *ngIf="article">
-  <h1>{{ article.title }}</h1>
-  <p><strong>Auteur :</strong> {{ article.author.username }}</p>
-  <p><strong>Date :</strong> {{ article.date }}</p>
-  <p><strong>Thème :</strong> {{ article.theme.title }}</p>
-  <p><strong>Description :</strong> {{ article.description }}</p>
-
-  <div>
-    <h2>Commentaires</h2>
-    <div *ngFor="let comment of comments">
-      <p><strong>{{ comment.author.username }}:</strong> {{ comment.content }}</p>
+<body>
+  <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="custom-toolbar">
+    <img src="assets/logo_p6.png" style="height: 40px; margin-right: 10px;">
+    <span>
+      <button class="btn btn-bar" (click)="navigateToThemes()">Thèmes</button>
+      <button class="btn btn-bar" (click)="navigateToArticle()">Articles</button>
+      <button class="btn btn-bar" (click)="logout()">Déconnexion</button>
+    </span>
+    <div>
+      <img src="assets/profil.png" style="height: 40px; margin-right: 10px;" (click)="navigateToMe()">
     </div>
+  </mat-toolbar>
 
-    <mat-form-field>
-      <mat-label>Ajouter un commentaire</mat-label>
-      <textarea matInput [(ngModel)]="newComment"></textarea>
-    </mat-form-field>
-    <button mat-raised-button color="primary" (click)="addComment()">Commenter</button>
+  <div class="container" *ngIf="article">
+    <h1 class="article-title">{{ article.title }}</h1>
+    <div class="article-details">
+      <p><strong>Auteur :</strong> {{ article.author.username }}</p>
+      <p><strong>Date :</strong> {{ article.date }}</p>
+      <p><strong>Thème :</strong> {{ article.theme.title }}</p>
+      <p><strong>Description :</strong></p>
+      <p class="article-description">{{ article.description }}</p>
+    </div>
+  
+    <div class="comments-section">
+      <h2>Commentaires</h2>
+      <div *ngFor="let comment of comments" class="comment">
+        <p><strong>{{ comment.author.username }}:</strong> {{ comment.content }}</p>
+      </div>
+  
+      <div class="add-comment">
+        <mat-form-field>
+          <mat-label>Ajouter un commentaire</mat-label>
+          <textarea matInput [(ngModel)]="newComment"></textarea>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addComment()">Commenter</button>
+      </div>
+    </div>
   </div>
-</div>
-<div *ngIf="!article">
-  <p>Chargement...</p>
-</div>
+  <div *ngIf="!article">
+    <p>Chargement...</p>
+  </div>
+  
+</body>
+</html>

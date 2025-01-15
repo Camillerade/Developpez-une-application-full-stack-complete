@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thèmes</title>
 </head>
-<mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="custom-toolbar">
-  <img src="assets/logo_p6.png" style="height: 40px; margin-right: 10px;">
-  <span>
-    <button class="btn btn btn-bar" (click)="navigateToThemes()">Themes</button>
-    <button class="btn btn-bar" (click)="navigateToArticle()">Article</button>
-    <button class="btn btn-bar" (click)="logout()">Déconnexion</button>
-    
-  </span>
-  <div>
-    <img src="assets/profil.png" style="height: 40px; margin-right: 10px;" (click)="navigateToMe()">
-  </div>
-</mat-toolbar>
-
 <body>
-  <button class="btn btn-primary" (click)="navigateToCreateArticle()">Créer un article</button>
+    <!-- Logo à gauche -->
+  
+  <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="custom-toolbar">
+    <div fxLayout="row" fxLayoutAlign="start center"class="logoheader">
+      <img src="assets/logo_p6.png" style="height: 40px; margin-left: 10px;">
+    </div>
+    <!-- Boutons et icône profil alignés à droite -->
+    <div fxLayout="row" fxLayoutAlign="end center" class="header-container">
+      <button class="btn btn-bar" (click)="navigateToArticle()">Articles</button>
+      <button class="btn btn-bar-theme" (click)="navigateToThemes()">Thèmes</button>
+    
+    <img src="assets/profil.png" style="height: 50px; margin: 0 2px;" (click)="navigateToMe()"></div>
+  </mat-toolbar>
+
   <div class="themes-container">
     <mat-card *ngFor="let theme of themes" class="theme-item">
       <mat-card-title><strong>{{ theme.title }}</strong></mat-card-title>

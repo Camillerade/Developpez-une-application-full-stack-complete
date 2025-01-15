@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+  }
+mat-card-title {
+    font-weight: bold;
+  }
+  .custom-toolbar {
+    background-color: #ffffff; /* Couleur blanche pour correspondre à la maquette */
+    height: 60px; /* Ajuste la hauteur */
+    border-bottom: 1px solid #ccc; /* Ligne fine en bas pour la séparation */
+  }
+  
+  .btn-bar {
+    background: none;
+    border: none;
+    color: #000; /* Couleur du texte */
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 25px;
+  }
+  .btn-bar-theme{
+    background: none;
+    border: none;
+    color: #742ce9; /* Couleur du texte */
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 25px;
+    
+  }
+  
+  img {
+    cursor: pointer; /* Ajoute une main au survol de l'image */
+  }
+  
+  
+  
+    .theme-item {
+      flex: 1 1 45%; /* 45% pour laisser un peu d'espace entre les colonnes */
+      box-sizing: border-box;
+      padding: 10px;
+      background-color: rgb(247, 243, 244);
+     font-style: bold;
+    }
+    
+    .logo {
+      max-width: 100%; /* Assurez-vous que le logo ne dépasse pas la largeur du conteneur */
+    }

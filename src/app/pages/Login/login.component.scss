@@ -1,8 +1,15 @@
 .login {
     margin-top: 30px;
     mat-card {
-        margin: 20px;
+        margin-left: 35%;
         max-width: 600px;
         width: 100%;
+        button{
+            margin-left: 40%;
+            width: 150px;
+            background-color: rgb(143, 119, 209); /* Couleur de fond violette */ 
+            color: white;
+        }
     }
+  
 }

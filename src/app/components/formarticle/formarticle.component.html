@@ -5,18 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thèmes</title>
 </head>
-<mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="custom-toolbar">
-  <img src="assets/logo_p6.png" style="height: 40px; margin-right: 10px;">
-  <span>
-    <button class="btn btn btn-bar" (click)="navigateToThemes()">Themes</button>
-    <button class="btn btn-bar" (click)="navigateToArticle()">Article</button>
-    <button class="btn btn-bar" (click)="logout()">Déconnexion</button>
+<body>
+  <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="custom-toolbar">
+    <!-- Logo à gauche -->
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <img src="assets/logo_p6.png" style="height: 40px; margin-left: 10px;">
+    </div>
+  
+    <!-- Boutons et icône profil alignés à droite -->
+    <div fxLayout="row" fxLayoutAlign="end center">
+      <button class="btn btn-bar" (click)="navigateToArticle()">Articles</button>
+      <button class="btn btn-bar-theme" (click)="navigateToThemes()">Thèmes</button>
     
-  </span>
-  <div>
-    <img src="assets/profil.png" style="height: 40px; margin-right: 10px;" (click)="navigateToMe()">
-  </div>
-</mat-toolbar>
+    </div>
+    <img src="assets/profil.png" style="height: 50px; margin: 0 2px;" (click)="navigateToMe()">
+  </mat-toolbar>
 
 
     <form (ngSubmit)="onSubmit()" [formGroup]="articleForm">
