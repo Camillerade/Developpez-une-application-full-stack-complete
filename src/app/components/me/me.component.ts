@@ -5,7 +5,7 @@ import { AuthService } from '../../services/auth.service';
 import { AbonnementService } from 'src/app/services/abonnementService';
 import { User } from 'src/app/interfaces/user.interface';
 import { Abonnement } from 'src/app/interfaces/Abonnement';
-
+import { SessionService } from 'src/app/services/session.service';
 @Component({
   selector: 'app-me',
   templateUrl: './me.component.html',
@@ -14,20 +14,19 @@ import { Abonnement } from 'src/app/interfaces/Abonnement';
 export class MeComponent implements OnInit {
   public user: User | undefined;
   public abonnements: Abonnement[] = [];
+  isLogged = false;
 
   constructor(
     private router: Router,
     private authService: AuthService,
     private abonnementService: AbonnementService,
-    private matSnackBar: MatSnackBar
-  ) {}
+    private matSnackBar: MatSnackBar,
+    private sessionService:SessionService
+  ) { this.isLogged = this.sessionService.isLogged}
 
   public ngOnInit(): void {
     this.loadUserInfo();
   }
-
-  logout(): void { localStorage.removeItem('token'); this.router.navigate(['/login']);}
-  
 
  
   navigateToMe(): void { this.router.navigate(['/me']); }
@@ -67,7 +66,7 @@ export class MeComponent implements OnInit {
     );
   }
   
-  
+ 
   
   public unsubscribe(themeId: number): void {
     if (this.user) {
@@ -97,9 +96,6 @@ export class MeComponent implements OnInit {
     this.router.navigate(['/articles']);
   }
 
-  public back(): void {
-    window.history.back();
-  }
 
   public save(): void {
     if (this.user) {
@@ -108,6 +104,7 @@ export class MeComponent implements OnInit {
         email: this.user!.email,
         username: this.user!.username,
         admin: this.user.admin,
+        password: this.user.password, // Ajouter le nouveau mot de passe
         createdAt: this.user.createdAt,
         updatedAt: new Date()
       };
@@ -139,6 +136,38 @@ export class MeComponent implements OnInit {
         },
         error => {
           this.matSnackBar.open('Failed to delete user', 'Close', {
+            duration: 3000,
+          });
+        }
+      );
+    }
+  }
+  logout(): void {
+    this.sessionService.logOut(); // Appelle la méthode logOut du SessionService
+    this.router.navigate(['/login']); // Redirige vers la page de connexion après déconnexion
+  }
+  
+  
+  public changePassword(): void {
+    if (this.user) {
+      const updatedUser: User = {
+        id: this.user.id,
+        email: this.user.email,
+        username: this.user.username,
+        admin: this.user.admin,
+        password: this.user.password, // Ajouter le nouveau mot de passe
+        createdAt: this.user.createdAt,
+        updatedAt: new Date()
+      };
+
+      this.authService.updateUser(updatedUser).subscribe(
+        () => {
+          this.matSnackBar.open('Password updated successfully', 'Close', {
+            duration: 3000,
+          });
+        },
+        error => {
+          this.matSnackBar.open('Failed to update password', 'Close', {
             duration: 3000,
           });
         }

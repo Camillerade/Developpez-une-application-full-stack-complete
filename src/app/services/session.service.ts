@@ -2,12 +2,10 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from 'src/app/interfaces/user.interface';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class SessionService {
-
   public isLogged = false;
   public user: User | undefined;
 
@@ -17,24 +15,23 @@ export class SessionService {
     return this.isLoggedSubject.asObservable();
   }
 
+  public setLoginStatus(status: boolean): void {
+    this.isLogged = status;
+    this.isLoggedSubject.next(this.isLogged);
+  }
+
   public logIn(user: User): void {
     this.user = user;
-    this.isLogged = true;
-    this.next();
+    this.setLoginStatus(true); // Utilise la méthode setLoginStatus
   }
 
   public logOut(): void {
     localStorage.removeItem('token');
     this.user = undefined;
     this.isLogged = false;
-    this.next();
-  }
-
-  private next(): void {
     this.isLoggedSubject.next(this.isLogged);
   }
 
-  // Ajout de la méthode getUserId pour récupérer l'ID de l'utilisateur connecté
   public getUserId(): number | undefined {
     return this.user ? this.user.id : undefined;
   }
